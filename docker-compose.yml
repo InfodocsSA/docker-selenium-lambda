@@ -4,3 +4,5 @@ services:
     build:
       dockerfile: Dockerfile
     container_name: chrome
+    volumes:
+      - "./:/var/task"

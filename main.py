@@ -18,7 +18,14 @@ def handler(event=None, context=None):
     options.add_argument(f"--data-path={mkdtemp()}")
     options.add_argument(f"--disk-cache-dir={mkdtemp()}")
     options.add_argument("--remote-debugging-port=9222")
+
+    # For Selenium 3.*, the 2nd argument appears to be chrome_options, as apposed to options for Selenium 4.*
+    #chrome = webdriver.Chrome("/opt/chromedriver", options=options)
     chrome = webdriver.Chrome("/opt/chromedriver",
-                              options=options)
+                              chrome_options=options)
+
     chrome.get("https://example.com/")
     return chrome.find_element(by=By.XPATH, value="//html").text
+
+
+handler()
