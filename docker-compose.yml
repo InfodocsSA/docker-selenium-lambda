@@ -1,0 +1,6 @@
+version: "3"
+services:
+  chrome:
+    build:
+      dockerfile: Dockerfile
+    container_name: chrome
